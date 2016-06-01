@@ -15,3 +15,27 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/resume',function(){
+    return 'This is my resume';
+});
+
+Route::get('/portfolio',function(){
+    return 'This is my portfolio';
+});
+
+Route::get('/rolldice/{guess}', function($guess)
+{     
+    $roll = rand(1,6);
+    
+    if($guess == $roll){
+       $message = "You guessed {$guess}, that was correct!"; 
+    }
+    else{
+        $message = "You guessed {$guess}, close but incorrect!";
+    }
+
+    $data = array('guess' => $guess, 'roll' => $roll, 'message' => $message);
+    return View::make('roll-dice')->with($data);
+    
+});
