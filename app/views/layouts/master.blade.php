@@ -19,9 +19,10 @@
 
     @yield('top-script')
 
-    <title>Micah's Portfolio</title>
+    <title>Micah's Blog</title>
 </head>
 <body>
+    @include('layouts.navbar')
     @yield('content')
 
     
