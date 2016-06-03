@@ -18,3 +18,6 @@ Route::get('whackamole', 'HomeController@showWhackamole');
 Route::get('/resume', 'HomeController@showResume');
 Route::get('/portfolio', 'HomeController@showPortfolio');
 Route::get('/rolldice/{guess?}', 'HomeController@showrollDice');
+
+// 10.2.6  creating routes for the 7 methods of posting, creating, deleteing, etc
+Route::resource('/posts', 'PostsController');
