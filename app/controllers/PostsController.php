@@ -36,7 +36,8 @@ class PostsController extends \BaseController {
 
 		// attempt validation
 	    if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        // validation failed, redirect to the post create page with validation errors and old inputs	        
+			Session::flash('errorMessage', 'Post has failed' );
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 			$post = new Post();
@@ -44,8 +45,10 @@ class PostsController extends \BaseController {
 			$post->content = Input::get('content');
 	// generic code to get the first id from the database
 			$post->user_id = User::first()->id;
+			// $post->user_id = Auth::id();
 	        // validation succeeded, create and save the post
 	    	$post->save();
+			Session::flash('successMessage', 'Post has been saved' );
 			return Redirect::action('PostsController@show', $post->id);
 	    }
 	}
@@ -59,8 +62,14 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
-		return View::make('posts.show')->with('post', $post);
+		try {
+            $post = Post::findOrFail($id);
+            return View::make('posts.show')->with(['post' => $post]);
+        } catch(Exception $e) {
+            App::abort(404);
+        }
+		// $post = Post::find($id);
+		// return View::make('posts.show')->with('post', $post);
 	}
 
 
@@ -85,15 +94,26 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$post = Post::find($id);
-		$post->title = Input::get('title');
-		$post->content = Input::get('content');
-	// generic code to get the first id from the database
-		$post->user_id = User::first()->id;
-	    $post->save();
+		$validator = Validator::make(Input::all(), Post::$rules);
+		
+		
 
-	    
-		return Redirect::action('PostsController@show', $post->id);
+		if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs	        
+			Session::flash('errorMessage', 'Post has failed' );
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+	    	$post = Post::find($id);
+			$post->title = Input::get('title');
+			$post->content = Input::get('content');
+		// generic code to get the first id from the database
+			$post->user_id = User::first()->id;
+			// $post->user_id = Auth::id();
+			$post->save();
+			Session::flash('successMessage', 'Post has been saved' );
+			return Redirect::action('PostsController@show', $post->id);
+		}
+		
 	}
 
 
@@ -105,8 +125,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$post = Post::find($id);
+		$post->delete();
+		return Redirect::action('PostsController@index');
+
 	}
-
-
 }
