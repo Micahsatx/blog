@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap')
+@extends('layouts.master')
 
 @section('content')
 <section class="create_form container">
@@ -25,8 +25,13 @@
             <input placeholder="image" id="img" name="img" type="file" class="" value="{{{ Input::old('img') }}}">
         <div>
             <input class="btn btn-block btn-primary" type="submit">
+
         </div>
     {{ Form::close() }}
+    {{ Form::model($post, array('action' => array('PostsController@destroy',$post->id), 'method' => 'DELETE')) }}
+        <button class="btn btn-block btn-danger" type="submit">Delete Post</button>
+    {{ Form::close() }}
+
 </section>
 @stop
 
