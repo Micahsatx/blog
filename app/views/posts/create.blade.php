@@ -1,4 +1,4 @@
-@extends('layouts.bootstrap')
+@extends('layouts.master')
 
 @section('content')
 <section class="create_form container">
