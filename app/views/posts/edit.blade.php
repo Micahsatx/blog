@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="create_form container">
-    <h1>Edit Post!</h1>
+    <h1>Post Editor</h1>
     
     {{ Form::model($post, array('action' => array('PostsController@update',$post->id), 'method' => 'PUT')) }}
         <div class ="form-group">
