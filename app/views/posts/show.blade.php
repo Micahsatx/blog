@@ -15,7 +15,9 @@
             <p>Written by: {{{ $post->user->user}}}</p>
             <p>{{ $post->content}}</p>
             @if(Auth::check())
-            <a href="{{{ action('PostsController@edit', $post->id) }}}">Edit this entry</a>
+                @if($post->user_id == Auth::id())
+            <a href="{{{ action('PostsController@edit', $post->id) }}}">Edit/Delete this entry</a>
+                @endif
             @endif
         </div>    
     </div>
