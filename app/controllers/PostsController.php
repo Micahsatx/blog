@@ -45,14 +45,6 @@ class PostsController extends \BaseController {
 	{
 	    $validator = Validator::make(Input::all(), Post::$rules);
 
-	    if(Input::hasFile('img')){
-	    	$img = Input::file('img');
-	    	$imgName = $post->id . '.' . $img->getClientOrigincalExtension();
-	    	$systemPath = public_path() . '/uploads/';
-	    	$img->move($systemPath, $imgName);
-	    	$post->img = '/uploads/' . $imgName;
-	    	$post->save();
-	    }
 		// attempt validation
 	    if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs	        
@@ -62,9 +54,18 @@ class PostsController extends \BaseController {
 			$post = new Post();
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
+			// $post->img = Input::get('img');
 	// generic code to get the first id from the database
 			$post->user_id = Auth::id();
 	    	$post->save();
+    	if(Input::hasFile('img')){
+	    	$img = Input::file('img');
+	    	$imgName = $post->id . '.' . $img->getClientOriginalExtension();
+	    	$systemPath = public_path() . '/uploads/';
+	    	$img->move($systemPath, $imgName);
+	    	$post->img = '/uploads/' . $imgName;
+	    	$post->save();
+	    }	
 			Session::flash('successMessage', 'Post has been saved' );
 			return Redirect::action('PostsController@show', $post->id);
 	    }
