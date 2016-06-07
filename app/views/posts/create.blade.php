@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('content')
@@ -33,6 +34,9 @@
 </section>
 @stop
 
+@section('bottom-script')
+<script>tinymce.init({ selector:'textarea' });</script>
+@stop
 
         
   
