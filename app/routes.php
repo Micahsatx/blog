@@ -21,3 +21,12 @@ Route::get('/rolldice/{guess?}', 'HomeController@showrollDice');
 
 // 10.2.6  creating routes for the 7 methods of posting, creating, deleteing, etc
 Route::resource('/posts', 'PostsController');
+
+Route::get('/login', 'HomeController@loginForm');
+Route::post('/login', 'HomeController@doLogin');
+// unsure what i am getting here
+Route::get('/logout', 'HomeController@doLogout');
+
+// Route::make('/newUser');
+Route::get('/newUser', 'HomeController@makeNewUserPage');
+Route::post('/newUser', 'PostsController@newUser');
