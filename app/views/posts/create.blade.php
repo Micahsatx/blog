@@ -5,7 +5,7 @@
 <section class="create_form container">
     <h1>Create a new blog post!</h1>
     
-    {{ Form::open(array('action' => 'PostsController@store')) }}
+    {{ Form::open(array('action' => 'PostsController@store', 'files'=> true)) }}
         <div class ="form-group">
             <!--the error message saying you must put in a title before you submit a new post  -->
             {{ $errors->first('title', '<span class="help-block">:message</span>') }}
