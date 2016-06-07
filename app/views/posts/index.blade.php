@@ -8,9 +8,10 @@
         <div class="col-md-8 col-md-offset-2 col-sm-12">
             <div class="card-post">
                 <div class= "unused">
-                    <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a></h3>
+                    <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
                     
-                    <p>{{{ $post->content }}}</p>
+                    <p>{{ $post->content }}</p>
+                    <img src="{{ $post->img }}">
                     <p><small>Posted on:
                         {{ 
                             $post
