@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    
     <!-- copy and pasted from twitter bootstrap getting started -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -18,7 +20,11 @@
 
 
     @yield('top-script')
-
+    <style type="text/css">
+    body{
+        padding-top: 50px;
+    }
+    </style>
     <title>Micah's Blog</title>
 </head>
 <body>
