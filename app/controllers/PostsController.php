@@ -2,6 +2,17 @@
 
 class PostsController extends \BaseController {
 
+// filter that runs before the page displays to decide what a user can and cant do
+	public function __construct()
+	{
+		// $this->beforeFilter('auth', array(
+		// 	'except' => array(
+		// 		'index',
+		// 		'show'
+		// 	)
+		// ));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -34,6 +45,14 @@ class PostsController extends \BaseController {
 	{
 	    $validator = Validator::make(Input::all(), Post::$rules);
 
+	    if(Input::hasFile('img')){
+	    	$img = Input::file('img');
+	    	$imgName = $post->id . '.' . $img->getClientOrigincalExtension();
+	    	$systemPath = public_path() . '/uploads/';
+	    	$img->move($systemPath, $imgName);
+	    	$post->img = '/uploads/' . $imgName;
+	    	$post->save();
+	    }
 		// attempt validation
 	    if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs	        
@@ -44,13 +63,23 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
 	// generic code to get the first id from the database
-			$post->user_id = User::first()->id;
-			// $post->user_id = Auth::id();
-	        // validation succeeded, create and save the post
+			$post->user_id = Auth::id();
 	    	$post->save();
 			Session::flash('successMessage', 'Post has been saved' );
 			return Redirect::action('PostsController@show', $post->id);
 	    }
+	}
+
+	public function newUser()
+	{
+		// View::make('posts.newUser');
+		$user = new User();
+		$user->user = Input::get('user');
+		$user->email = Input::get('email');
+// generic code to get the first id from the database
+		$user->password = Input::get('password');
+    	$user->save();
+    	return Redirect::action('PostsController@index');
 	}
 
 
@@ -130,4 +159,6 @@ class PostsController extends \BaseController {
 		return Redirect::action('PostsController@index');
 
 	}
+
+
 }
