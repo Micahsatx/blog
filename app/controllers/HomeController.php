@@ -94,7 +94,7 @@ class HomeController extends BaseController {
 	    		return Redirect::action('PostsController@index');
 			} else {
 			    // login failed, go back to the login screen
-				Session::flash('errorMessage', 'auth::atempt failed' );
+				Session::flash('errorMessage', 'Login failed, please try again' );
 				return Redirect::back()->withInput();
 			}
 	    }
