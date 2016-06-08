@@ -15,16 +15,16 @@
     
     {{-- my css --}}
     <link rel="stylesheet" href="/css/blog.css"> 
+
+    <link rel="icon" href="/favicon.ico"> 
     
     
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- javascript script from twitter bootstrap getting started.  copy / paste -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   
 
 
     @yield('top-script')
     
-    <title>Micah's Blog</title>
+    <title>MicahSATX</title>
 </head>
 <body>
     @include('layouts.navbar')
@@ -41,6 +41,10 @@
     
     <!-- j query library hosted by google...google it. copy.paste. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- javascript script from twitter bootstrap getting started.  copy / paste -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     @yield('bottom-script')
 </body>
 </html>
