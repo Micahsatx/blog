@@ -11,6 +11,6 @@ class Post extends BaseModel {
 
     public function user()
     {
-        return $this->belongsTo('user');
+        return $this->belongsTo('User');
     }
 }
