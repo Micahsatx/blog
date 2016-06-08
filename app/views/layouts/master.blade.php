@@ -7,11 +7,14 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     
-    <!-- ***my own style sheet*** -->
+    <!-- ***logo icon*** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    {{-- google fonts --}}
+    <link href='https://fonts.googleapis.com/css?family=Biryani' rel='stylesheet' type='text/css'>
     
-    <!-- This is the link for the font awesome icon i downloaded that is my pretend logo -->
-    <link rel="stylesheet" href="/css/resume.css"> 
+    {{-- my css --}}
+    <link rel="stylesheet" href="/css/blog.css"> 
     
     
     <!-- Latest compiled and minified JavaScript -->
@@ -20,11 +23,7 @@
 
 
     @yield('top-script')
-    <style type="text/css">
-    body{
-        padding-top: 50px;
-    }
-    </style>
+    
     <title>Micah's Blog</title>
 </head>
 <body>
