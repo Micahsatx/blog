@@ -73,6 +73,14 @@ class PostsController extends \BaseController {
 
 	public function newUser()
 	{
+	    $validator = Validator::make(Input::all(), User::$rules);
+
+	    if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs	        
+			Session::flash('errorMessage', 'Creating new user failed, please try again.' );
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    }
+	    
 		// View::make('posts.newUser');
 		$user = new User();
 		$user->user = Input::get('user');
