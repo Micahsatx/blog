@@ -29,12 +29,21 @@
         </div>
     {{ Form::close() }}
     {{ Form::model($post, array('action' => array('PostsController@destroy',$post->id), 'method' => 'DELETE')) }}
-        <button class="btn btn-block btn-danger" type="submit">Delete Post</button>
+        <button id="delete-post-btn" class="btn btn-block btn-danger" type="submit">Delete Post</button>
+    {{ Form::close() }}
+    <!-- the hidden for for deleting a post using javascript. -->
+    <!-- the click listener is on the submit button id delete-post-btn.. -->
+    {{ Form::open([
+        'action' => ['PostsController@destroy', $post->id],
+        'id'     => 'delete-post-form',
+        'method' => 'DELETE',
+    ]) }}
     {{ Form::close() }}
 
 </section>
 @stop
 @section('bottom-script')
+<script type="text/javascript" src="/js/blog.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 @stop
 
