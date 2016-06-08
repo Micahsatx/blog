@@ -2,16 +2,16 @@
 
 @section('content')
 
-    <h1>All Posts</h1>
+    <h1 class="title">Blog Home</h1>
     @foreach ($posts as $post)
-    <div class="postsRow">
-        <div class="col-md-8 col-md-offset-2 col-sm-12">
+    <div class="">
+        <div class="col-md-10 col-md-offset-1 col-sm-12">
             <div class="card-post">
-                <div class= "unused">
+                <div class= "postsRow">
                     <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
                     
                     <p>{{ $post->content }}</p>
-                    <img src="{{ $post->img }}">
+                    <img class= "img-responsive" src="{{ $post->img }}">
                     <p><small>Posted on:
                         {{ 
                             $post
