@@ -24,9 +24,6 @@ Route::resource('/posts', 'PostsController');
 
 Route::get('/login', 'HomeController@loginForm');
 Route::post('/login', 'HomeController@doLogin');
-// unsure what i am getting here
 Route::get('/logout', 'HomeController@doLogout');
-
-// Route::make('/newUser');
 Route::get('/newUser', 'HomeController@makeNewUserPage');
 Route::post('/newUser', 'PostsController@newUser');

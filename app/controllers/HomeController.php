@@ -110,7 +110,6 @@ class HomeController extends BaseController {
 
 	public function makeNewUserPage()
 	{
-		// dd('making it to homecontroller');
 		return View::make('posts.newUser');
 	}
 

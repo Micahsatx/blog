@@ -5,9 +5,9 @@
     <h1 class="title">Blog Home</h1>
     @foreach ($posts as $post)
     <div class="">
-        <div class="col-md-10 col-md-offset-1 col-sm-12">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-hidden col-xs-hidden">
             <div class="card-post">
-                <div class= "postsRow">
+                <div class= "largePostsRow">
                     <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
                     
                     <p>{{ $post->content }}</p>
@@ -26,7 +26,33 @@
                     </small></p>    
                 </div> 
             </div>
-        
+        </div>
+    </div>
+    @endforeach 
+
+    @foreach ($posts as $post)
+    <div class="">
+        <div class="col-lg-hidden col-md-hidden col-sm-12 col-xs-12">
+            <div class="card-post">
+                <div class= "smallPostsRow">
+                    <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
+                    
+                    <p>{{ $post->content }}</p>
+                    <img class= "img-responsive" src="{{ $post->img }}">
+                    <p><small>Posted on:
+                        {{ 
+                            $post
+                            ->created_at
+                            ->setTimezone('America/Chicago')
+                            ->format('l, F jS Y @ h:i:s A') 
+                        }}
+                    </small></p>
+                    <!-- on the specific post it shows the who wrote the post -->
+                    <p><small>
+                        Written by: {{{ $post->user->user}}}
+                    </small></p>    
+                </div> 
+            </div>
         </div>
     </div>
     @endforeach  
