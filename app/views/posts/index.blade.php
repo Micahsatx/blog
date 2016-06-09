@@ -28,9 +28,6 @@
             </div>
         </div>
     </div>
-    @endforeach 
-
-    @foreach ($posts as $post)
     <div class="">
         <div class="col-lg-hidden col-md-hidden col-sm-12 col-xs-12">
             <div class="card-post">
@@ -55,7 +52,8 @@
             </div>
         </div>
     </div>
-    @endforeach  
+    @endforeach 
+
 
     <div class="row col-md-8 col-md-offset-2 col-sm-12">            
         <!-- the bar at the bottom of blog.dev/posts that paginates/nextpage -->
