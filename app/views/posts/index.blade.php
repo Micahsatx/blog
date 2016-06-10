@@ -5,7 +5,7 @@
     <h1 class="title">Blog Home</h1>
     @foreach ($posts as $post)
     <div class="">
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-hidden col-xs-hidden">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 hidden-sm hidden-xs">
             <div class="card-post">
                 <div class= "largePostsRow">
                     <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="">
-        <div class="col-lg-hidden col-md-hidden col-sm-12 col-xs-12">
+        <div class="hidden-xl hidden-lg hidden-md col-sm-12 col-xs-12">
             <div class="card-post">
                 <div class= "smallPostsRow">
                     <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title }}</a></h3>
