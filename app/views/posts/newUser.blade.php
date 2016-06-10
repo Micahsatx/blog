@@ -8,17 +8,14 @@
         <div class ="form-group">
             <!--the error message saying you must put in a name before you submit a new post  -->
             {{ $errors->first('user', '<span class="help-block">:message</span>') }}
-            
             <!-- label for title bar -->
             {{ Form::label('user', 'Name:') }}
-            
             <!-- input field for name -->
-            {{ Form::text('user', Input::old('user'), array('class' => 'form-control other-class another', 'placeholder' => 'Name:')) }}       
+            {{ Form::text('user', Input::old('user'), array('class' => 'form-control other-class another', 'placeholder' => 'Name:')) }} 
         </div>
         <div class ="form-group">
             <!--the error message saying you must put in a email before you submit a new post  -->
             {{ $errors->first('email', '<span class="help-block">:message</span>') }}
-            
             <!-- label for title bar -->
             {{ Form::label('email', 'Email:') }}
             
