@@ -1,5 +1,7 @@
 <html>
 <head>
+    {{-- 404 page for when a user puts in a bad url related to micahjohnson.xyz   this takes you to the whackamole game i created --}}
+    {{-- this is the entire whackamole codeset all in one page --}}
     <title>Error:404</title>
 
     <style type="text/css"></style>
@@ -88,18 +90,10 @@
     <button class="start-button" id="idOfStartNormalMode"></button>
     <button class="start-button" id="idOfStartHardMode"></button>
 </div>
-
+{{-- sound for the tube when successfully whacking a flower --}}
 <audio preload="auto" id="tubeSound">
     <source src="/whackamole/sounds/tube.mp3" type="audio/mpeg">
 </audio>
-
-
-
-
-
-
-
-
 
 
 <script>
