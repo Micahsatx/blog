@@ -4,19 +4,13 @@
     border: 1px solid black;
     padding: 20px;
     margin: 30px;
-    font-size: 100%;
 }
 .smallPostsRow {
     background-color: #eeeeee;
     border: 1px solid black;
     padding: 20px;
     margin: 30px;
-    font-size: 400%;
 }
-
-.navigationBar {
-/*    font-size:250%;
-*/}
 
 .title {
     margin-left: 100px;
@@ -27,9 +21,5 @@ body {
     padding-top: 50px;
     font-family: 'Biryani', sans-serif;
 }
-
-/*.navbar-header {
-    font-color: blue;
-}*/
 
 
