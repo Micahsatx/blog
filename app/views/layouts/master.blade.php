@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {{-- stackover flow solution to  navbar collapse --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     
     <!-- copy and pasted from twitter bootstrap getting started -->
